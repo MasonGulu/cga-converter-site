@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="index.js"></script>
+    <script src="rgbquant.js"></script>
+  </head>
+  <body>
+    <div>
+      <input type="file" id="imageInput" name="imageInput" accept="image/*"/>
+      <select id="imageType">
+        <option value="m4c0">4c0</option>
+        <option value="m4c1">4c1</option>
+        <option value="m4cm">4cm</option>
+        <option value="m256co0">256co0</option>
+        <option value="m256co1">256co1</option>
+        <option value="m512co">512co</option>
+        <option value="m256cn0">256cn0</option>
+        <option value="m256cn1">256cn1</option>
+        <option value="m512cn">512cn</option>
+        <option value="m16c">80x25 16 Color Text</option>
+        <option value="m2c">640x200 Mono</option>
+      </select>
+      <select id="ditherType">
+        <option value="">None</option>
+        <option value="FloydSteinberg">Floyd Steinberg</option>
+        <option value="FalseFloydSteinberg">False Floyd Steinberg</option>
+        <option value="Stucki">Stucki</option>
+        <option value="Atkinson">Atkinson</option>
+        <option value="Jarvis">Jarvis</option>
+        <option value="Burkes">Burkes</option>
+        <option value="Sierra">Sierra</option>
+        <option value="TwoSierra">Two Sierra</option>
+        <option value="SierraLite">Sierra Lite</option>
+      </select>
+      <input type="checkbox" id="serpentineDither">
+      <label for="serpentineDither">Serpentine Dither</label>
+      <button id="process">Process</button>
+    </div>
+    <img id="image">
+    <canvas id="canvas" width="640" height="400"></canvas>
+    <canvas id="preview" width="640" height="400"></canvas>
+    <script>ready();</script>
+  </body>
+</html>
