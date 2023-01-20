@@ -23,6 +23,9 @@ function ready() {
 	const ditherType = document.getElementById("ditherType");
 	const image = document.getElementById("image");
 
+	const scaledImage = document.getElementById("scaledImage");
+	const previewImage = document.getElementById("previewImage");
+
 	// taken from https://github.com/MasonGulu/cga-imagemaker/blob/main/cgaimage.py
 	const quant4c0 = new RgbQuant({
 		palette: rgbArrToRgbTuples([0x000000, 0x5c9c0c, 0x993100, 0x9e5a02])
@@ -124,8 +127,12 @@ function ready() {
 		scaledCtx.fillRect(0,0,scaledCanvas.width,scaledCanvas.height);
 		scaledCtx.drawImage(image, 0, 0, scaledCanvas.width, scaledCanvas.height);
 		var quantizedImage = quantizeMap[imageType.value].reduce(scaledCanvas, null, ditherType.value, serpentineDither.checked);
+	
 		scaledCtx.putImageData(new ImageData(new Uint8ClampedArray(quantizedImage), scaledCanvas.width, scaledCanvas.height), 0, 0);
 		previewCtx.drawImage(scaledCanvas, 0, 0, previewCanvas.width, previewCanvas.height)
+
+		scaledImage.src = scaledCanvas.toDataURL("image/png");
+		previewImage.src = previewCanvas.toDataURL("image/png");
 	};
 
 }

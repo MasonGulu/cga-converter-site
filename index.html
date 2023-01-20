@@ -8,15 +8,15 @@
     <div>
       <input type="file" id="imageInput" name="imageInput" accept="image/*"/>
       <select id="imageType">
-        <option value="m4c0">4c0</option>
-        <option value="m4c1">4c1</option>
-        <option value="m4cm">4cm</option>
-        <option value="m256co0">256co0</option>
-        <option value="m256co1">256co1</option>
-        <option value="m512co">512co</option>
-        <option value="m256cn0">256cn0</option>
-        <option value="m256cn1">256cn1</option>
-        <option value="m512cn">512cn</option>
+        <option value="m4c0">320x200 Palette 0</option>
+        <option value="m4c1">320x200 Palette 1</option>
+        <option value="m4cm">320x200 Mono</option>
+        <option value="m256co0">80x100 "Old" 256 color palette 0</option>
+        <option value="m256co1">80x100 "Old" 256 color palette 1</option>
+        <option value="m512co">80x100 "Old" 512 color</option>
+        <option value="m256cn0">80x100 "New" 256 color palette 0</option>
+        <option value="m256cn1">80x100 "New" 256 color palette 1</option>
+        <option value="m512cn">80x100 "New" 512 color</option>
         <option value="m16c">80x25 16 Color Text</option>
         <option value="m2c">640x200 Mono</option>
       </select>
@@ -37,8 +37,10 @@
       <button id="process">Process</button>
     </div>
     <img id="image">
-    <canvas id="canvas" width="640" height="400"></canvas>
-    <canvas id="preview" width="640" height="400"></canvas>
+    <canvas id="canvas" width="640" height="400" hidden></canvas>
+    <img id="scaledImage">
+    <canvas id="preview" width="640" height="400" hidden></canvas>
+    <img id="previewImage">
     <script>ready();</script>
   </body>
 </html>
